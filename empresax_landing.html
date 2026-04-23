@@ -3,184 +3,394 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EmpresaX — Automatización Web</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<title>ProSENA — Talento técnico certificado</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  :root{
-    --negro:#0a0a0a;--blanco:#fafafa;--acento:#e8ff3a;--gris:#1a1a1a;
-    --gris2:#2a2a2a;--texto-muted:#888;--sans:'DM Sans',sans-serif;--display:'Syne',sans-serif
-  }
-  body{background:var(--negro);color:var(--blanco);font-family:var(--sans);min-height:100vh;overflow-x:hidden}
-  nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 4rem;border-bottom:1px solid #1f1f1f}
-  .logo{font-family:var(--display);font-weight:800;font-size:1.4rem;letter-spacing:-0.03em}
-  .logo span{color:var(--acento)}
-  .hero{display:grid;grid-template-columns:1fr 1fr;gap:4rem;padding:5rem 4rem;align-items:center;min-height:90vh}
-  .hero-left{display:flex;flex-direction:column;gap:2rem}
-  .tag{display:inline-flex;align-items:center;gap:8px;background:var(--gris);border:1px solid #2f2f2f;padding:6px 14px;border-radius:100px;font-size:0.75rem;color:var(--texto-muted);width:fit-content}
-  .tag-dot{width:6px;height:6px;background:var(--acento);border-radius:50%;animation:pulse 2s infinite}
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
-  h1{font-family:var(--display);font-size:3.8rem;font-weight:800;line-height:1.05;letter-spacing:-0.04em}
-  h1 em{color:var(--acento);font-style:normal}
-  .subtitulo{font-size:1.05rem;color:var(--texto-muted);line-height:1.7;max-width:420px;font-weight:300}
-  .stats{display:flex;gap:2rem;padding-top:1rem;border-top:1px solid #1f1f1f}
-  .stat-num{font-family:var(--display);font-size:2rem;font-weight:800;color:var(--acento)}
-  .stat-label{font-size:0.78rem;color:var(--texto-muted);margin-top:2px}
-  .form-card{background:var(--gris);border:1px solid #2a2a2a;border-radius:20px;padding:2.5rem;display:flex;flex-direction:column;gap:1.5rem}
-  .form-title{font-family:var(--display);font-size:1.4rem;font-weight:700}
-  .form-title span{color:var(--acento)}
-  .campo{display:flex;flex-direction:column;gap:6px}
-  label{font-size:0.78rem;color:var(--texto-muted);letter-spacing:0.05em;text-transform:uppercase}
-  input,select,textarea{background:var(--negro);border:1px solid #2f2f2f;border-radius:10px;padding:12px 16px;color:var(--blanco);font-family:var(--sans);font-size:0.9rem;outline:none;transition:border-color 0.2s}
-  input:focus,select:focus,textarea:focus{border-color:var(--acento)}
-  select option{background:var(--negro)}
-  textarea{resize:none;height:80px}
-  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-  .btn{background:var(--acento);color:var(--negro);border:none;border-radius:10px;padding:14px 24px;font-family:var(--display);font-size:1rem;font-weight:700;cursor:pointer;transition:all 0.2s;letter-spacing:-0.02em;width:100%}
-  .btn:hover{background:#d4eb2a;transform:translateY(-1px)}
-  .btn:active{transform:translateY(0)}
-  .btn:disabled{opacity:0.5;cursor:not-allowed;transform:none}
-  .privacy{font-size:0.73rem;color:var(--texto-muted);text-align:center;line-height:1.5}
-  .success-msg{display:none;background:#0f2e1a;border:1px solid #1a5c30;border-radius:12px;padding:2rem;text-align:center;flex-direction:column;align-items:center;gap:0.8rem}
-  .success-msg.show{display:flex}
-  .check{width:48px;height:48px;background:#1a5c30;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem}
-  .success-title{font-family:var(--display);font-weight:700;font-size:1.1rem;color:#4ade80}
-  .success-sub{font-size:0.85rem;color:#86efac}
-  .error-msg{background:#2e0f0f;border:1px solid #5c1a1a;border-radius:8px;padding:10px 14px;font-size:0.82rem;color:#f87171;display:none}
-  .error-msg.show{display:block}
-  footer{text-align:center;padding:2rem;border-top:1px solid #1f1f1f;font-size:0.78rem;color:var(--texto-muted)}
-  @media(max-width:768px){
-    nav{padding:1rem 1.5rem}
-    .hero{grid-template-columns:1fr;padding:3rem 1.5rem;gap:3rem;min-height:auto}
-    h1{font-size:2.5rem}
-    .grid2{grid-template-columns:1fr}
-    .stats{gap:1.5rem}
-  }
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --verde:#00A651;--verde-claro:#00C961;--verde-oscuro:#007A3D;
+  --crema:#F5F0E8;--blanco:#FAFAF8;--negro:#0D0D0D;
+  --gris:#1A1A1A;--gris2:#2D2D2D;--texto-muted:#6B6B6B;
+  --display:'Fraunces',serif;--sans:'DM Sans',sans-serif
+}
+html{scroll-behavior:smooth}
+body{background:var(--blanco);color:var(--negro);font-family:var(--sans);overflow-x:hidden}
+
+/* NAV */
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 5rem;position:fixed;top:0;width:100%;z-index:100;background:rgba(250,250,248,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.06)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:36px;height:36px;background:var(--verde);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.logo-icon svg{width:20px;height:20px;fill:white}
+.logo-text{font-family:var(--display);font-size:1.4rem;font-weight:700;letter-spacing:-0.03em}
+.logo-text span{color:var(--verde)}
+.nav-cta{background:var(--verde);color:white;border:none;padding:10px 22px;border-radius:100px;font-family:var(--sans);font-size:0.85rem;font-weight:500;cursor:pointer;transition:all 0.2s}
+.nav-cta:hover{background:var(--verde-claro);transform:translateY(-1px)}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding:8rem 5rem 5rem;gap:5rem;align-items:center;background:var(--blanco);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(0,166,81,0.08) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(0,166,81,0.05) 0%,transparent 70%);pointer-events:none}
+
+.hero-left{display:flex;flex-direction:column;gap:2rem;animation:fadeUp 0.8s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,166,81,0.1);border:1px solid rgba(0,166,81,0.2);padding:6px 16px;border-radius:100px;font-size:0.78rem;color:var(--verde-oscuro);width:fit-content;font-weight:500}
+.badge-dot{width:6px;height:6px;background:var(--verde);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.8)}}
+
+h1{font-family:var(--display);font-size:4.2rem;font-weight:900;line-height:1.0;letter-spacing:-0.04em;color:var(--negro)}
+h1 em{color:var(--verde);font-style:italic}
+h1 .sub{display:block;font-weight:300;font-size:3.8rem;color:var(--texto-muted)}
+
+.hero-desc{font-size:1.05rem;color:var(--texto-muted);line-height:1.75;max-width:440px;font-weight:300}
+
+.hero-stats{display:flex;gap:2.5rem;padding:1.5rem 0;border-top:1px solid rgba(0,0,0,0.08);border-bottom:1px solid rgba(0,0,0,0.08)}
+.stat-num{font-family:var(--display);font-size:2.2rem;font-weight:900;color:var(--verde);line-height:1}
+.stat-label{font-size:0.78rem;color:var(--texto-muted);margin-top:4px;line-height:1.3}
+
+.hero-btn{display:inline-flex;align-items:center;gap:10px;background:var(--negro);color:white;padding:16px 28px;border-radius:100px;font-size:1rem;font-weight:500;cursor:pointer;transition:all 0.25s;border:none;font-family:var(--sans);text-decoration:none;width:fit-content}
+.hero-btn:hover{background:var(--gris2);transform:translateY(-2px)}
+.hero-btn-arrow{width:28px;height:28px;background:var(--verde);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.9rem;transition:transform 0.2s}
+.hero-btn:hover .hero-btn-arrow{transform:rotate(45deg)}
+
+/* AREAS */
+.areas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;animation:fadeUp 0.8s 0.2s ease both}
+.area-card{background:var(--crema);border-radius:16px;padding:1.2rem 1.4rem;cursor:pointer;transition:all 0.2s;border:1px solid transparent}
+.area-card:hover{border-color:var(--verde);background:white;transform:translateY(-2px)}
+.area-icon{font-size:1.6rem;margin-bottom:0.5rem}
+.area-name{font-size:0.88rem;font-weight:500;color:var(--negro)}
+.area-count{font-size:0.75rem;color:var(--texto-muted);margin-top:2px}
+
+/* FORM SECTION */
+.form-section{background:var(--crema);padding:6rem 5rem;position:relative;overflow:hidden}
+.form-section::before{content:'ProSENA';font-family:var(--display);font-size:18rem;font-weight:900;color:rgba(0,166,81,0.04);position:absolute;top:-3rem;left:-2rem;pointer-events:none;white-space:nowrap;line-height:1}
+
+.form-container{display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:start;position:relative}
+.form-left{display:flex;flex-direction:column;gap:2rem}
+.form-left h2{font-family:var(--display);font-size:3rem;font-weight:900;line-height:1.1;letter-spacing:-0.03em}
+.form-left h2 span{color:var(--verde)}
+.form-left p{font-size:1rem;color:var(--texto-muted);line-height:1.7;font-weight:300}
+
+.beneficios{display:flex;flex-direction:column;gap:1rem}
+.beneficio{display:flex;align-items:center;gap:12px;font-size:0.9rem;color:var(--gris)}
+.beneficio-check{width:24px;height:24px;background:var(--verde);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.7rem;color:white}
+
+.form-card{background:white;border-radius:24px;padding:2.5rem;box-shadow:0 20px 60px rgba(0,0,0,0.08);display:flex;flex-direction:column;gap:1.5rem}
+.form-card-title{font-family:var(--display);font-size:1.6rem;font-weight:700;letter-spacing:-0.02em}
+.form-card-title span{color:var(--verde)}
+
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.campo{display:flex;flex-direction:column;gap:6px}
+.campo.full{grid-column:1/-1}
+label{font-size:0.75rem;color:var(--texto-muted);letter-spacing:0.06em;text-transform:uppercase;font-weight:500}
+input,select,textarea{background:var(--crema);border:1.5px solid transparent;border-radius:10px;padding:12px 14px;color:var(--negro);font-family:var(--sans);font-size:0.9rem;outline:none;transition:all 0.2s;width:100%}
+input:focus,select:focus,textarea:focus{border-color:var(--verde);background:white;box-shadow:0 0 0 4px rgba(0,166,81,0.08)}
+select option{background:white}
+textarea{resize:none;height:90px}
+
+.seccion-titulo{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--verde-oscuro);font-weight:600;padding:0.5rem 0 0;border-top:1px solid rgba(0,166,81,0.15)}
+
+.btn-submit{background:var(--verde);color:white;border:none;border-radius:12px;padding:15px 24px;font-family:var(--display);font-size:1.05rem;font-weight:700;cursor:pointer;transition:all 0.2s;width:100%;letter-spacing:-0.02em;display:flex;align-items:center;justify-content:center;gap:10px}
+.btn-submit:hover{background:var(--verde-claro);transform:translateY(-1px)}
+.btn-submit:disabled{opacity:0.6;cursor:not-allowed;transform:none}
+
+.privacy{font-size:0.72rem;color:var(--texto-muted);text-align:center;line-height:1.6}
+
+.error-msg{background:#fff0f0;border:1px solid #ffcccc;border-radius:8px;padding:10px 14px;font-size:0.82rem;color:#cc0000;display:none}
+.error-msg.show{display:block}
+
+.success-msg{display:none;background:#f0fff5;border:1px solid rgba(0,166,81,0.3);border-radius:16px;padding:2rem;text-align:center;flex-direction:column;align-items:center;gap:1rem}
+.success-msg.show{display:flex}
+.success-icon{width:56px;height:56px;background:var(--verde);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:white}
+.success-title{font-family:var(--display);font-weight:700;font-size:1.3rem;color:var(--verde-oscuro)}
+.success-sub{font-size:0.88rem;color:var(--texto-muted);line-height:1.6}
+
+/* COMO FUNCIONA */
+.como-section{padding:6rem 5rem;background:var(--negro)}
+.como-section h2{font-family:var(--display);font-size:3rem;font-weight:900;color:white;text-align:center;margin-bottom:3rem;letter-spacing:-0.03em}
+.como-section h2 span{color:var(--verde)}
+.pasos{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.paso{background:var(--gris);border-radius:20px;padding:2rem;display:flex;flex-direction:column;gap:1rem;position:relative;overflow:hidden}
+.paso::before{content:attr(data-num);font-family:var(--display);font-size:6rem;font-weight:900;color:rgba(0,166,81,0.08);position:absolute;top:-1rem;right:1rem;line-height:1}
+.paso-num{width:36px;height:36px;background:var(--verde);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;font-size:1rem;color:white}
+.paso-title{font-family:var(--display);font-size:1.2rem;font-weight:700;color:white}
+.paso-desc{font-size:0.88rem;color:#888;line-height:1.6;font-weight:300}
+
+/* FOOTER */
+footer{background:var(--negro);border-top:1px solid #1f1f1f;padding:2rem 5rem;display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-family:var(--display);font-size:1.1rem;font-weight:700;color:white}
+.footer-logo span{color:var(--verde)}
+.footer-text{font-size:0.78rem;color:#555}
+
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem}
+  .hero{grid-template-columns:1fr;padding:7rem 1.5rem 3rem;gap:2rem}
+  h1{font-size:2.8rem}
+  h1 .sub{font-size:2.4rem}
+  .areas-grid{grid-template-columns:repeat(2,1fr)}
+  .form-section{padding:4rem 1.5rem}
+  .form-container{grid-template-columns:1fr}
+  .como-section{padding:4rem 1.5rem}
+  .pasos{grid-template-columns:1fr}
+  footer{padding:1.5rem;flex-direction:column;gap:0.5rem;text-align:center}
+}
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="logo">empresa<span>X</span></div>
-  <div style="font-size:0.82rem;color:var(--texto-muted)">contacto@empresax.co</div>
+  <div class="logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+    </div>
+    <div class="logo-text">Pro<span>SENA</span></div>
+  </div>
+  <button class="nav-cta" onclick="document.getElementById('registro').scrollIntoView({behavior:'smooth'})">Registrarme gratis</button>
 </nav>
 
 <section class="hero">
   <div class="hero-left">
-    <div class="tag"><span class="tag-dot"></span>Automatización inteligente</div>
-    <h1>Páginas web que <em>trabajan</em> por ti</h1>
-    <p class="subtitulo">Creamos soluciones digitales que capturan leads, automatizan seguimientos y convierten visitas en clientes — sin que hagas nada manual.</p>
-    <div class="stats">
+    <div class="badge"><span class="badge-dot"></span>Plataforma gratuita para egresados</div>
+    <h1>Tu talento<br><em>técnico</em><span class="sub">merece clientes</span></h1>
+    <p class="hero-desc">Conectamos egresados del SENA con empresas y personas que necesitan profesionales certificados en toda Colombia.</p>
+    <div class="hero-stats">
       <div>
-        <div class="stat-num">3x</div>
-        <div class="stat-label">más leads</div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Gratuito para<br>egresados</div>
+      </div>
+      <div>
+        <div class="stat-num">6</div>
+        <div class="stat-label">Áreas<br>disponibles</div>
       </div>
       <div>
         <div class="stat-num">24h</div>
-        <div class="stat-label">respuesta automática</div>
-      </div>
-      <div>
-        <div class="stat-num">100%</div>
-        <div class="stat-label">automatizado</div>
+        <div class="stat-label">Contacto<br>automático</div>
       </div>
     </div>
+    <a class="hero-btn" href="#registro">
+      Publicar mi perfil gratis
+      <span class="hero-btn-arrow">→</span>
+    </a>
   </div>
 
-  <div class="form-card">
-    <div class="form-title">Solicita tu <span>cotización</span></div>
-
-    <div id="formulario">
-      <div style="display:flex;flex-direction:column;gap:1rem">
-        <div class="grid2">
-          <div class="campo">
-            <label>Nombre</label>
-            <input type="text" id="nombre" placeholder="Juan Pérez">
-          </div>
-          <div class="campo">
-            <label>Teléfono</label>
-            <input type="tel" id="telefono" placeholder="+57 300 000 0000">
-          </div>
-        </div>
-        <div class="campo">
-          <label>Correo electrónico</label>
-          <input type="email" id="email" placeholder="juan@tuempresa.com">
-        </div>
-        <div class="campo">
-          <label>Tipo de negocio</label>
-          <select id="negocio">
-            <option value="">Selecciona una opción</option>
-            <option>Restaurante / Comida</option>
-            <option>Tienda / E-commerce</option>
-            <option>Servicios profesionales</option>
-            <option>Salud / Bienestar</option>
-            <option>Educación</option>
-            <option>Otro</option>
-          </select>
-        </div>
-        <div class="campo">
-          <label>¿Qué necesitas?</label>
-          <textarea id="mensaje" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
-        </div>
-        <div class="error-msg" id="error">Por favor completa todos los campos.</div>
-        <button class="btn" id="btn-enviar" onclick="enviarFormulario()">Quiero mi cotización gratis →</button>
-        <p class="privacy">🔒 Tus datos están seguros. Sin spam, nunca.</p>
-      </div>
+  <div class="areas-grid">
+    <div class="area-card">
+      <div class="area-icon">💻</div>
+      <div class="area-name">Tecnología</div>
+      <div class="area-count">Software, redes, soporte</div>
     </div>
-
-    <div class="success-msg" id="success">
-      <div class="check">✓</div>
-      <div class="success-title">¡Solicitud recibida!</div>
-      <div class="success-sub" id="success-sub">Te escribiremos a tu correo en menos de 24 horas.</div>
+    <div class="area-card">
+      <div class="area-icon">⚡</div>
+      <div class="area-name">Industria</div>
+      <div class="area-count">Eléctrica, mecánica</div>
+    </div>
+    <div class="area-card">
+      <div class="area-icon">🏥</div>
+      <div class="area-name">Salud</div>
+      <div class="area-count">Auxiliares, técnicos</div>
+    </div>
+    <div class="area-card">
+      <div class="area-icon">📊</div>
+      <div class="area-name">Comercio</div>
+      <div class="area-count">Ventas, contabilidad</div>
+    </div>
+    <div class="area-card">
+      <div class="area-icon">🌱</div>
+      <div class="area-name">Agropecuario</div>
+      <div class="area-count">Campo, ganadería</div>
+    </div>
+    <div class="area-card">
+      <div class="area-icon">🎨</div>
+      <div class="area-name">Servicios</div>
+      <div class="area-count">Diseño, turismo</div>
     </div>
   </div>
 </section>
 
-<footer>© 2026 EmpresaX · Bucaramanga, Colombia · Todos los derechos reservados</footer>
+<section class="como-section">
+  <h2>¿Cómo <span>funciona</span>?</h2>
+  <div class="pasos">
+    <div class="paso" data-num="1">
+      <div class="paso-num">1</div>
+      <div class="paso-title">Registra tu perfil</div>
+      <div class="paso-desc">Llena el formulario con tu formación, experiencia y servicios. Es gratis y toma menos de 3 minutos.</div>
+    </div>
+    <div class="paso" data-num="2">
+      <div class="paso-num">2</div>
+      <div class="paso-title">Te encontramos clientes</div>
+      <div class="paso-desc">Empresas y personas buscan profesionales en nuestra base de datos y te contactan directamente.</div>
+    </div>
+    <div class="paso" data-num="3">
+      <div class="paso-num">3</div>
+      <div class="paso-title">Recibe oportunidades</div>
+      <div class="paso-desc">Te llega un correo automático cada vez que alguien está interesado en tus servicios.</div>
+    </div>
+  </div>
+</section>
+
+<section class="form-section" id="registro">
+  <div class="form-container">
+    <div class="form-left">
+      <h2>Publica tu perfil<br><span>hoy mismo</span></h2>
+      <p>Miles de empresas en Colombia buscan profesionales técnicos certificados. Tu formación SENA es tu mayor activo — úsala.</p>
+      <div class="beneficios">
+        <div class="beneficio"><div class="beneficio-check">✓</div>Registro 100% gratuito para egresados</div>
+        <div class="beneficio"><div class="beneficio-check">✓</div>Clientes te contactan directamente</div>
+        <div class="beneficio"><div class="beneficio-check">✓</div>Notificación automática por correo</div>
+        <div class="beneficio"><div class="beneficio-check">✓</div>Visible para empresas en toda Colombia</div>
+        <div class="beneficio"><div class="beneficio-check">✓</div>Sin intermediarios ni comisiones</div>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <div class="form-card-title">Crear mi perfil <span>gratis</span></div>
+
+      <div id="formulario">
+        <div class="form-grid">
+          <div class="campo full"><div class="seccion-titulo">Datos personales</div></div>
+          <div class="campo">
+            <label>Nombre completo</label>
+            <input type="text" id="nombre" placeholder="Juan Pérez">
+          </div>
+          <div class="campo">
+            <label>Ciudad</label>
+            <input type="text" id="ciudad" placeholder="Bucaramanga">
+          </div>
+          <div class="campo">
+            <label>WhatsApp</label>
+            <input type="tel" id="telefono" placeholder="+57 300 000 0000">
+          </div>
+          <div class="campo">
+            <label>Correo electrónico</label>
+            <input type="email" id="email" placeholder="juan@correo.com">
+          </div>
+
+          <div class="campo full"><div class="seccion-titulo">Formación SENA</div></div>
+          <div class="campo">
+            <label>Área de formación</label>
+            <select id="area">
+              <option value="">Selecciona...</option>
+              <option>Tecnología e Informática</option>
+              <option>Industria y Manufactura</option>
+              <option>Salud y Bienestar</option>
+              <option>Comercio y Servicios</option>
+              <option>Agropecuario</option>
+              <option>Diseño y Artes</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label>Programa cursado</label>
+            <input type="text" id="programa" placeholder="Ej: Análisis de Software">
+          </div>
+          <div class="campo">
+            <label>Año de egreso</label>
+            <input type="number" id="anio" placeholder="2023" min="2000" max="2026">
+          </div>
+          <div class="campo">
+            <label>Años de experiencia</label>
+            <select id="experiencia">
+              <option value="">Selecciona...</option>
+              <option>Sin experiencia</option>
+              <option>Menos de 1 año</option>
+              <option>1 - 2 años</option>
+              <option>3 - 5 años</option>
+              <option>Más de 5 años</option>
+            </select>
+          </div>
+
+          <div class="campo full"><div class="seccion-titulo">Servicios y disponibilidad</div></div>
+          <div class="campo full">
+            <label>¿Qué servicios ofreces?</label>
+            <textarea id="servicios" placeholder="Describe brevemente lo que haces y en qué puedes ayudar..."></textarea>
+          </div>
+          <div class="campo">
+            <label>Disponibilidad</label>
+            <select id="disponibilidad">
+              <option value="">Selecciona...</option>
+              <option>Tiempo completo</option>
+              <option>Medio tiempo</option>
+              <option>Por proyectos</option>
+              <option>Fines de semana</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label>Tarifa aproximada</label>
+            <input type="text" id="tarifa" placeholder="Ej: $50.000/hora (opcional)">
+          </div>
+          <div class="campo full">
+            <label>LinkedIn o portafolio (opcional)</label>
+            <input type="url" id="portafolio" placeholder="https://linkedin.com/in/...">
+          </div>
+
+          <div class="campo full">
+            <div class="error-msg" id="error">Por favor completa todos los campos obligatorios.</div>
+            <button class="btn-submit" id="btn-enviar" onclick="enviarFormulario()">
+              Publicar mi perfil gratis →
+            </button>
+          </div>
+          <div class="campo full">
+            <p class="privacy">🔒 Tus datos están protegidos. Solo los compartimos con quienes busquen tus servicios.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="success-msg" id="success">
+        <div class="success-icon">✓</div>
+        <div class="success-title">¡Perfil publicado!</div>
+        <div class="success-sub" id="success-sub">Tu perfil ya es visible para empresas en Colombia. Te notificaremos por correo cuando alguien esté interesado en tus servicios.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Pro<span>SENA</span></div>
+  <div class="footer-text">© 2026 ProSENA · Bucaramanga, Colombia · Conectando talento técnico con oportunidades</div>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
-  // ── Configuración ──────────────────────────────────────────
   const FIREBASE_URL = "https://prueba-automatizacion-23f2c-default-rtdb.firebaseio.com";
   const EMAILJS_PUBLIC_KEY = "1y-8GOUm9nYtwek7m";
   const EMAILJS_SERVICE    = "service_3zfrlr7";
-  const TEMPLATE_CLIENTE   = "template_qmbmuu9";
-  const TEMPLATE_EMPRESA   = "template_rczf9l2";
-  // ───────────────────────────────────────────────────────────
+  const TEMPLATE_EGRESADO  = "template_qmbmuu9";
+  const TEMPLATE_ADMIN     = "template_rczf9l2";
+  const MAKE_WEBHOOK       = "https://hook.us2.make.com/1h32dvqymwj29w0egr72j606a4dcsvey";
 
   emailjs.init(EMAILJS_PUBLIC_KEY);
 
   function validar() {
-    return ['nombre','telefono','email','negocio','mensaje']
-      .every(id => document.getElementById(id).value.trim() !== '');
+    const requeridos = ['nombre','ciudad','telefono','email','area','programa','anio','experiencia','servicios','disponibilidad'];
+    return requeridos.every(id => document.getElementById(id).value.trim() !== '');
   }
 
   async function guardarEnFirebase(datos) {
-    const res = await fetch(`${FIREBASE_URL}/leads.json`, {
+    const res = await fetch(`${FIREBASE_URL}/egresados.json`, {
       method: 'POST',
-      headers: {'Content-Type': 'application/json'},
+      headers: {'Content-Type':'application/json'},
       body: JSON.stringify({...datos, fecha: new Date().toISOString()})
     });
     if (!res.ok) throw new Error('Firebase error');
   }
 
   async function enviarAMake(datos) {
-    await fetch('https://hook.us2.make.com/1h32dvqymwj29w0egr72j606a4dcsvey', {
+    await fetch(MAKE_WEBHOOK, {
       method: 'POST',
-      headers: {'Content-Type': 'application/json'},
+      headers: {'Content-Type':'application/json'},
       body: JSON.stringify(datos)
     });
   }
 
   async function enviarCorreos(datos) {
     const params = {
-      nombre:   datos.nombre,
-      email:    datos.email,
+      nombre: datos.nombre,
+      email: datos.email,
       telefono: datos.telefono,
-      negocio:  datos.negocio,
-      mensaje:  datos.mensaje
+      negocio: datos.area,
+      mensaje: `Programa: ${datos.programa} | Servicios: ${datos.servicios} | Disponibilidad: ${datos.disponibilidad}`
     };
-    await emailjs.send(EMAILJS_SERVICE, TEMPLATE_CLIENTE, params);
-    await emailjs.send(EMAILJS_SERVICE, TEMPLATE_EMPRESA, params);
+    await emailjs.send(EMAILJS_SERVICE, TEMPLATE_EGRESADO, params);
+    await emailjs.send(EMAILJS_SERVICE, TEMPLATE_ADMIN, params);
   }
 
   async function enviarFormulario() {
@@ -189,37 +399,42 @@
     err.classList.remove('show');
 
     if (!validar()) {
-      err.textContent = 'Por favor completa todos los campos.';
       err.classList.add('show');
       return;
     }
 
     const datos = {
-      nombre:   document.getElementById('nombre').value.trim(),
-      telefono: document.getElementById('telefono').value.trim(),
-      email:    document.getElementById('email').value.trim(),
-      negocio:  document.getElementById('negocio').value,
-      mensaje:  document.getElementById('mensaje').value.trim()
+      nombre:        document.getElementById('nombre').value.trim(),
+      ciudad:        document.getElementById('ciudad').value.trim(),
+      telefono:      document.getElementById('telefono').value.trim(),
+      email:         document.getElementById('email').value.trim(),
+      area:          document.getElementById('area').value,
+      programa:      document.getElementById('programa').value.trim(),
+      anio:          document.getElementById('anio').value,
+      experiencia:   document.getElementById('experiencia').value,
+      servicios:     document.getElementById('servicios').value.trim(),
+      disponibilidad:document.getElementById('disponibilidad').value,
+      tarifa:        document.getElementById('tarifa').value.trim(),
+      portafolio:    document.getElementById('portafolio').value.trim()
     };
 
     btn.disabled = true;
-    btn.textContent = 'Enviando...';
+    btn.textContent = 'Publicando...';
 
     try {
       await guardarEnFirebase(datos);
       await enviarAMake(datos);
       await enviarCorreos(datos);
       document.getElementById('formulario').style.display = 'none';
-      const s = document.getElementById('success');
-      s.classList.add('show');
+      document.getElementById('success').classList.add('show');
       document.getElementById('success-sub').textContent =
-        `Te escribiremos a ${datos.email} en menos de 24 horas.`;
+        `Tu perfil ya es visible, ${datos.nombre}. Te notificaremos a ${datos.email} cuando alguien esté interesado.`;
     } catch(e) {
       console.error(e);
-      err.textContent = 'Hubo un error al enviar. Intenta de nuevo.';
+      err.textContent = 'Hubo un error. Intenta de nuevo.';
       err.classList.add('show');
       btn.disabled = false;
-      btn.textContent = 'Quiero mi cotización gratis →';
+      btn.textContent = 'Publicar mi perfil gratis →';
     }
   }
 </script>
