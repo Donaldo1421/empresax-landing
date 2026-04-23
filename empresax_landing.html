@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EmpresaX — Automatización Web</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --negro:#0a0a0a;--blanco:#fafafa;--acento:#e8ff3a;--gris:#1a1a1a;
+    --gris2:#2a2a2a;--texto-muted:#888;--sans:'DM Sans',sans-serif;--display:'Syne',sans-serif
+  }
+  body{background:var(--negro);color:var(--blanco);font-family:var(--sans);min-height:100vh;overflow-x:hidden}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 4rem;border-bottom:1px solid #1f1f1f}
+  .logo{font-family:var(--display);font-weight:800;font-size:1.4rem;letter-spacing:-0.03em}
+  .logo span{color:var(--acento)}
+  .hero{display:grid;grid-template-columns:1fr 1fr;gap:4rem;padding:5rem 4rem;align-items:center;min-height:90vh}
+  .hero-left{display:flex;flex-direction:column;gap:2rem}
+  .tag{display:inline-flex;align-items:center;gap:8px;background:var(--gris);border:1px solid #2f2f2f;padding:6px 14px;border-radius:100px;font-size:0.75rem;color:var(--texto-muted);width:fit-content}
+  .tag-dot{width:6px;height:6px;background:var(--acento);border-radius:50%;animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+  h1{font-family:var(--display);font-size:3.8rem;font-weight:800;line-height:1.05;letter-spacing:-0.04em}
+  h1 em{color:var(--acento);font-style:normal}
+  .subtitulo{font-size:1.05rem;color:var(--texto-muted);line-height:1.7;max-width:420px;font-weight:300}
+  .stats{display:flex;gap:2rem;padding-top:1rem;border-top:1px solid #1f1f1f}
+  .stat-num{font-family:var(--display);font-size:2rem;font-weight:800;color:var(--acento)}
+  .stat-label{font-size:0.78rem;color:var(--texto-muted);margin-top:2px}
+  .form-card{background:var(--gris);border:1px solid #2a2a2a;border-radius:20px;padding:2.5rem;display:flex;flex-direction:column;gap:1.5rem}
+  .form-title{font-family:var(--display);font-size:1.4rem;font-weight:700}
+  .form-title span{color:var(--acento)}
+  .campo{display:flex;flex-direction:column;gap:6px}
+  label{font-size:0.78rem;color:var(--texto-muted);letter-spacing:0.05em;text-transform:uppercase}
+  input,select,textarea{background:var(--negro);border:1px solid #2f2f2f;border-radius:10px;padding:12px 16px;color:var(--blanco);font-family:var(--sans);font-size:0.9rem;outline:none;transition:border-color 0.2s}
+  input:focus,select:focus,textarea:focus{border-color:var(--acento)}
+  select option{background:var(--negro)}
+  textarea{resize:none;height:80px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .btn{background:var(--acento);color:var(--negro);border:none;border-radius:10px;padding:14px 24px;font-family:var(--display);font-size:1rem;font-weight:700;cursor:pointer;transition:all 0.2s;letter-spacing:-0.02em;width:100%}
+  .btn:hover{background:#d4eb2a;transform:translateY(-1px)}
+  .btn:active{transform:translateY(0)}
+  .btn:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+  .privacy{font-size:0.73rem;color:var(--texto-muted);text-align:center;line-height:1.5}
+  .success-msg{display:none;background:#0f2e1a;border:1px solid #1a5c30;border-radius:12px;padding:2rem;text-align:center;flex-direction:column;align-items:center;gap:0.8rem}
+  .success-msg.show{display:flex}
+  .check{width:48px;height:48px;background:#1a5c30;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem}
+  .success-title{font-family:var(--display);font-weight:700;font-size:1.1rem;color:#4ade80}
+  .success-sub{font-size:0.85rem;color:#86efac}
+  .error-msg{background:#2e0f0f;border:1px solid #5c1a1a;border-radius:8px;padding:10px 14px;font-size:0.82rem;color:#f87171;display:none}
+  .error-msg.show{display:block}
+  footer{text-align:center;padding:2rem;border-top:1px solid #1f1f1f;font-size:0.78rem;color:var(--texto-muted)}
+  @media(max-width:768px){
+    nav{padding:1rem 1.5rem}
+    .hero{grid-template-columns:1fr;padding:3rem 1.5rem;gap:3rem;min-height:auto}
+    h1{font-size:2.5rem}
+    .grid2{grid-template-columns:1fr}
+    .stats{gap:1.5rem}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">empresa<span>X</span></div>
+  <div style="font-size:0.82rem;color:var(--texto-muted)">contacto@empresax.co</div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="tag"><span class="tag-dot"></span>Automatización inteligente</div>
+    <h1>Páginas web que <em>trabajan</em> por ti</h1>
+    <p class="subtitulo">Creamos soluciones digitales que capturan leads, automatizan seguimientos y convierten visitas en clientes — sin que hagas nada manual.</p>
+    <div class="stats">
+      <div>
+        <div class="stat-num">3x</div>
+        <div class="stat-label">más leads</div>
+      </div>
+      <div>
+        <div class="stat-num">24h</div>
+        <div class="stat-label">respuesta automática</div>
+      </div>
+      <div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">automatizado</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-card">
+    <div class="form-title">Solicita tu <span>cotización</span></div>
+
+    <div id="formulario">
+      <div style="display:flex;flex-direction:column;gap:1rem">
+        <div class="grid2">
+          <div class="campo">
+            <label>Nombre</label>
+            <input type="text" id="nombre" placeholder="Juan Pérez">
+          </div>
+          <div class="campo">
+            <label>Teléfono</label>
+            <input type="tel" id="telefono" placeholder="+57 300 000 0000">
+          </div>
+        </div>
+        <div class="campo">
+          <label>Correo electrónico</label>
+          <input type="email" id="email" placeholder="juan@tuempresa.com">
+        </div>
+        <div class="campo">
+          <label>Tipo de negocio</label>
+          <select id="negocio">
+            <option value="">Selecciona una opción</option>
+            <option>Restaurante / Comida</option>
+            <option>Tienda / E-commerce</option>
+            <option>Servicios profesionales</option>
+            <option>Salud / Bienestar</option>
+            <option>Educación</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label>¿Qué necesitas?</label>
+          <textarea id="mensaje" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+        </div>
+        <div class="error-msg" id="error">Por favor completa todos los campos.</div>
+        <button class="btn" id="btn-enviar" onclick="enviarFormulario()">Quiero mi cotización gratis →</button>
+        <p class="privacy">🔒 Tus datos están seguros. Sin spam, nunca.</p>
+      </div>
+    </div>
+
+    <div class="success-msg" id="success">
+      <div class="check">✓</div>
+      <div class="success-title">¡Solicitud recibida!</div>
+      <div class="success-sub" id="success-sub">Te escribiremos a tu correo en menos de 24 horas.</div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 EmpresaX · Bucaramanga, Colombia · Todos los derechos reservados</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+  // ── Configuración ──────────────────────────────────────────
+  const FIREBASE_URL = "https://prueba-automatizacion-23f2c-default-rtdb.firebaseio.com";
+  const EMAILJS_PUBLIC_KEY = "1y-8GOUm9nYtwek7m";
+  const EMAILJS_SERVICE    = "service_3zfrlr7";
+  const TEMPLATE_CLIENTE   = "template_qmbmuu9";
+  const TEMPLATE_EMPRESA   = "template_rczf9l2";
+  // ───────────────────────────────────────────────────────────
+
+  emailjs.init(EMAILJS_PUBLIC_KEY);
+
+  function validar() {
+    return ['nombre','telefono','email','negocio','mensaje']
+      .every(id => document.getElementById(id).value.trim() !== '');
+  }
+
+  async function guardarEnFirebase(datos) {
+    const res = await fetch(`${FIREBASE_URL}/leads.json`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({...datos, fecha: new Date().toISOString()})
+    });
+    if (!res.ok) throw new Error('Firebase error');
+  }
+
+  async function enviarCorreos(datos) {
+    const params = {
+      nombre:   datos.nombre,
+      email:    datos.email,
+      telefono: datos.telefono,
+      negocio:  datos.negocio,
+      mensaje:  datos.mensaje
+    };
+    await emailjs.send(EMAILJS_SERVICE, TEMPLATE_CLIENTE, params);
+    await emailjs.send(EMAILJS_SERVICE, TEMPLATE_EMPRESA, params);
+  }
+
+  async function enviarFormulario() {
+    const err = document.getElementById('error');
+    const btn = document.getElementById('btn-enviar');
+    err.classList.remove('show');
+
+    if (!validar()) {
+      err.textContent = 'Por favor completa todos los campos.';
+      err.classList.add('show');
+      return;
+    }
+
+    const datos = {
+      nombre:   document.getElementById('nombre').value.trim(),
+      telefono: document.getElementById('telefono').value.trim(),
+      email:    document.getElementById('email').value.trim(),
+      negocio:  document.getElementById('negocio').value,
+      mensaje:  document.getElementById('mensaje').value.trim()
+    };
+
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    try {
+      await guardarEnFirebase(datos);
+      await enviarCorreos(datos);
+      document.getElementById('formulario').style.display = 'none';
+      const s = document.getElementById('success');
+      s.classList.add('show');
+      document.getElementById('success-sub').textContent =
+        `Te escribiremos a ${datos.email} en menos de 24 horas.`;
+    } catch(e) {
+      console.error(e);
+      err.textContent = 'Hubo un error al enviar. Intenta de nuevo.';
+      err.classList.add('show');
+      btn.disabled = false;
+      btn.textContent = 'Quiero mi cotización gratis →';
+    }
+  }
+</script>
+</body>
+</html>
