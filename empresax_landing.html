@@ -163,6 +163,14 @@
     if (!res.ok) throw new Error('Firebase error');
   }
 
+  async function enviarAMake(datos) {
+    await fetch('https://hook.us2.make.com/1h32dvqymwj29w0egr72j606a4dcsvey', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(datos)
+    });
+  }
+
   async function enviarCorreos(datos) {
     const params = {
       nombre:   datos.nombre,
@@ -199,6 +207,7 @@
 
     try {
       await guardarEnFirebase(datos);
+      await enviarAMake(datos);
       await enviarCorreos(datos);
       document.getElementById('formulario').style.display = 'none';
       const s = document.getElementById('success');
