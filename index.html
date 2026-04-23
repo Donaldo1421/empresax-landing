@@ -424,7 +424,7 @@ footer{background:var(--negro);border-top:1px solid #1f1f1f;padding:2rem 5rem;di
     try {
       await guardarEnFirebase(datos);
       await enviarAMake(datos);
-      await enviarCorreos(datos);
+      try { await enviarCorreos(datos); } catch(e) { console.warn('EmailJS:', e); }
       document.getElementById('formulario').style.display = 'none';
       document.getElementById('success').classList.add('show');
       document.getElementById('success-sub').textContent =
